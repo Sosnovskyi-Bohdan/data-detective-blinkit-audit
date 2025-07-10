@@ -29,10 +29,10 @@ Methodology:
 4. Logical Consistency Audit: Verifying data integrity across related tables.
 
 5. Evidence Locker: Summary of Findings
-  
-Our forensic audit uncovered overwhelming evidence of synthetic data generation and a lack of internal consistency.
 
 ---
+  
+**Our forensic audit uncovered overwhelming evidence of synthetic data generation and a lack of internal consistency:**
 
 - **Finding 1:** The Data is Too Perfect (and Too Flawed)
   
@@ -71,9 +71,8 @@ The dataset is a synthetically generated artifact with critical flaws in its des
 This project underscores the importance of a "trust but verify" approach in data analysis. Before building complex models or deriving business insights, an analyst's primary responsibility is to audit the quality and integrity of the source data.
 
 - **How to Replicate the Audit**
-Clone the repository:
 
-``git clone https://github.com/Sosnovskyi-Bohdan/data-detective-blinkit-audit.git``
+Clone the repository: ``git clone https://github.com/Sosnovskyi-Bohdan/data-detective-blinkit-audit.git``
 
 Download the dataset from the [source on Kaggle](https://www.kaggle.com/datasets/akxiit/blinkit-sales-dataset "Blinkit Sales Dataset") and place the CSV files in the data/ directory.
 
