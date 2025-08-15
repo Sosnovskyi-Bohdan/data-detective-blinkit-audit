@@ -34,7 +34,7 @@ Methodology:
   
 **Our forensic audit uncovered overwhelming evidence of synthetic data generation and a lack of internal consistency:**
 
-- **Finding 1:** The Data is Too Perfect (and Too Flawed)
+### **Finding 1:** The Data is Too Perfect (and Too Flawed)
   
   - Impossible Values: The ``delivery_time_minutes`` column contains negative values, which is physically impossible.
   
@@ -48,7 +48,7 @@ Methodology:
   
   - Products: A critical inconsistency where 268 ``product_ids`` map to only ``51`` ``product_names``.
 
-- Finding 2: Unnatural Distributions
+### Finding 2: Unnatural Distributions
   - Uniform ("Box-like") Shapes: Key financial and logistical metrics (``avg_order_value``, ``distance_km``, ``spend``) exhibit near-perfect uniform distributions, a clear hallmark of simple random number generation, not natural business processes.
   - A real-world distribution of financial data is almost never flat.
 
@@ -56,20 +56,21 @@ Methodology:
 <img width="1042" height="578" alt="image" src="https://github.com/user-attachments/assets/47d66def-2eee-48d5-992a-affde0eb86ef" />
 
 
-- Finding 3: Lack of Logical Correlation
+### Finding 3: Lack of Logical Correlation
   - The correlation between logically connected marketing metrics is effectively zero (e.g., ``spend`` vs. ``revenue_generated`` is ``-0.01``). This proves that each column was generated independently without any underlying business logic.
   - In reality, spend and revenue should be positively correlated.
 
 <img width="1088" height="555" alt="image" src="https://github.com/user-attachments/assets/349e3eab-9ee3-42c8-b935-b4e5d3d222e7" />
 
 
-- Finding 4: Violation of Benford's Law
+### Finding 4: Violation of Benford's Law
   - The distribution of the first digits in the order_total column significantly deviates from the expected Benford's Law curve (``P-value ≈ 0``). This is a strong indicator of non-organic, artificial data.
   - The black bars (our data) do not follow the red dots (Benford's Law).
 
 <img width="1380" height="766" alt="image" src="https://github.com/user-attachments/assets/7536c52f-cd8a-4bce-894f-a9afbaab9882" />
 
-- Finding 5: Critical Integrity Failure
+
+### Finding 5: Critical Integrity Failure
   - The final audit revealed that ``99.98%`` of orders have a significant discrepancy between the stated ``order_total`` and the actual sum of its items. This is a fundamental violation of data integrity and proves the data was generated without cross-table validation.
 
 <img width="667" height="353" alt="image" src="https://github.com/user-attachments/assets/4385246d-cb1f-4220-a02e-3947083de612" />
