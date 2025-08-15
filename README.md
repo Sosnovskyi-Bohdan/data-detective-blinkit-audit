@@ -52,16 +52,27 @@ Methodology:
   - Uniform ("Box-like") Shapes: Key financial and logistical metrics (``avg_order_value``, ``distance_km``, ``spend``) exhibit near-perfect uniform distributions, a clear hallmark of simple random number generation, not natural business processes.
   - A real-world distribution of financial data is almost never flat.
 
+<img width="1030" height="578" alt="image" src="https://github.com/user-attachments/assets/c4ed7fd0-0977-429d-8118-e44b6fc96aab" />
+<img width="1042" height="578" alt="image" src="https://github.com/user-attachments/assets/47d66def-2eee-48d5-992a-affde0eb86ef" />
+
+
 - Finding 3: Lack of Logical Correlation
   - The correlation between logically connected marketing metrics is effectively zero (e.g., ``spend`` vs. ``revenue_generated`` is ``-0.01``). This proves that each column was generated independently without any underlying business logic.
   - In reality, spend and revenue should be positively correlated.
+
+<img width="1088" height="555" alt="image" src="https://github.com/user-attachments/assets/349e3eab-9ee3-42c8-b935-b4e5d3d222e7" />
+
 
 - Finding 4: Violation of Benford's Law
   - The distribution of the first digits in the order_total column significantly deviates from the expected Benford's Law curve (``P-value ≈ 0``). This is a strong indicator of non-organic, artificial data.
   - The black bars (our data) do not follow the red dots (Benford's Law).
 
+<img width="1380" height="766" alt="image" src="https://github.com/user-attachments/assets/7536c52f-cd8a-4bce-894f-a9afbaab9882" />
+
 - Finding 5: Critical Integrity Failure
   - The final audit revealed that ``99.98%`` of orders have a significant discrepancy between the stated ``order_total`` and the actual sum of its items. This is a fundamental violation of data integrity and proves the data was generated without cross-table validation.
+
+<img width="667" height="353" alt="image" src="https://github.com/user-attachments/assets/4385246d-cb1f-4220-a02e-3947083de612" />
 
 ---
 - **Final Conclusion**
